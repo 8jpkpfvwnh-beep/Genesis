@@ -22,7 +22,6 @@
         .header { padding: 40px 20px; background: white; border-bottom: 1px solid var(--sand); }
         h1 { font-weight: 300; letter-spacing: 4px; margin-bottom: 10px; text-transform: uppercase; }
         
-        /* Countdown Styling */
         #countdown {
             display: flex;
             justify-content: center;
@@ -39,8 +38,10 @@
 
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
         .featured-img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--sand); }
+        
         .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
         .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border: 1px solid var(--sand); }
+        
         .card { background: white; border-radius: 2px; padding: 30px; margin-bottom: 20px; border: 1px solid #eee; }
         .btn { display: inline-block; background: var(--sand); color: white; padding: 15px 35px; border-radius: 0; text-decoration: none; margin-top: 15px; letter-spacing: 1px; }
     </style>
@@ -57,7 +58,8 @@
     </div>
 
     <div class="container">
-        <img src="IMG_0586.jpeg" alt="Genesis and Alexis" class="featured-img">
+        <!-- Using IMG_0585 as the big main photo -->
+        <img src="IMG_0585.jpeg" alt="Genesis and Alexis" class="featured-img">
 
         <div class="card">
             <h3>The Celebration</h3>
@@ -68,27 +70,24 @@
 
         <h3>Our Memories</h3>
         <div class="gallery">
-            <img src="IMG_0580.jpeg" alt="Wedding Memory 1">
-            <img src="IMG_0581.jpeg" alt="Wedding Memory 2">
-            <img src="IMG_0583.jpeg" alt="Wedding Memory 3">
-            <img src="IMG_0584.jpeg" alt="Wedding Memory 4">
+            <img src="IMG_0580.jpeg" alt="Memory 1">
+            <img src="IMG_0581.jpeg" alt="Memory 2">
+            <img src="IMG_0583.jpeg" alt="Memory 3">
+            <img src="IMG_0584.jpeg" alt="Memory 4">
+            <img src="IMG_0586.jpeg" alt="Memory 5">
         </div>
     </div>
 
     <script>
         const targetDate = new Date("October 13, 2026 00:00:00").getTime();
-
         function updateCountdown() {
             const now = new Date().getTime();
             const gap = targetDate - now;
-
             const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
-
             document.getElementById("days").innerText = Math.floor(gap / day);
             document.getElementById("hours").innerText = Math.floor((gap % day) / hour);
             document.getElementById("mins").innerText = Math.floor((gap % hour) / minute);
         }
-
         setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
